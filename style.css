@@ -1,0 +1,9 @@
+#wrapper{color:#ffffff;
+	background-color: green;
+	min-width: 900px;
+	max-width: 1024px;
+	box-shadow:5px 5px 5px #828282;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;}
+	
