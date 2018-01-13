@@ -24,11 +24,6 @@ if($connection->query($sql) === FALSE)
 	echo "ERROR: Table not created"  . $connection->error;
 }
 
-$sql = "CREATE TABLE IF NOT EXISTS status(taskID INT, status VARCHAR(25), PRIMARY KEY(taskID), FOREIGN KEY(taskID) references task(taskID))";
-if($connection->query($sql) === FALSE)
-{
-	echo "ERROR: Table not created"  . $connection->error;
-}
 
 $sql = "CREATE TABLE IF NOT EXISTS dueDate(taskID INT, ddate VARCHAR(20), PRIMARY KEY(taskID), FOREIGN KEY(taskID) references task(taskID))";
 if($connection->query($sql) === FALSE)
