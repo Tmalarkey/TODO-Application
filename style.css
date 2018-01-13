@@ -1,9 +1,28 @@
-#wrapper{color:#ffffff;
-	background-color: green;
-	min-width: 900px;
+#wrapper{color:black;
+	background-color: #ffffa5;
+	min-width: 700px;
 	max-width: 1024px;
 	box-shadow:5px 5px 5px #828282;
 	margin-left: auto;
 	margin-right: auto;
-	width: 80%;}
-	
+	width: 80%;
+	overflow: hidden;}
+#nav{float: left;
+	width: 140px;
+	height: 230px;
+	padding-left: 20px;
+	padding-right: 5px; 
+	padding-top: 20px; 
+	padding-bottom: 5px; 
+	font-weight: bold;
+	border-style: solid;
+	border-top-style: none;}
+header{ border-style: solid;}
+main{ background-color: #ffffff;
+	margin-left: 170px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: auto;}
+nav,main{display: block;}
