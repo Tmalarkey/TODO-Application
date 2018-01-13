@@ -2,11 +2,11 @@
 
 	class task
 	{
-		var $taskid 
-		var $name
-		var $comment
-		var $status
-		var	$ddate
+		var $taskid;
+		var $name;
+		var $comment;
+		var $status;
+		var	$ddate;
 		function __construct($tId,$tName,$tComment,$tComment,$tStatus,$tDate)
 		{
 			$this->taskid =$tId;
@@ -59,25 +59,25 @@
 	
 	class toDoList
 	{
-		
+		public $tasks = array();
 	}
 	
 	class dbInfo
 	{
-		$server = "localhost";
-		$username = "root";
-		$password = "";
+		var $server = "localhost";
+		var $username = "root";
+		var $password = "";
 		function getServer()
 		{
-			return $server;
+			return $this->server;
 		}
 		function getUser()
 		{
-			return $username;
+			return $this->username;
 		}
 		function getPass()
 		{
-			return $password;
+			return $this->password;
 		}
 	}
 		
