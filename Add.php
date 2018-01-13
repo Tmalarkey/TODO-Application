@@ -1,4 +1,6 @@
-
+<?php
+include("class_Lib.php");
+?>
 <! DOCTYPE html>
 <html lang = "en">
 <head>
@@ -26,9 +28,9 @@ echo "<h1>TODO List Application</h1>";
 <div>
 <h2 style='text-align: center' >Add a Task</h2>
 
-<form action="Main.php" method="post" >
-Name: <input type="text" name="name"><br><br>
-Comment: <input type="text" name="comment"><br><br>
+<form method="post" >
+Name: <input type="text" name="tname"><br><br>
+Comment: <input type="text" name="tcomment"><br><br>
 Due Date: <input type="date" name="date"><br><br>
 Status: <select name="recommend">
 	<option value="Pending">Pending</option>
@@ -47,5 +49,25 @@ Status: <select name="recommend">
 </div>
 </html>
 <?php
+$dbCon = new dbInfo;
+// create connection
+$connection = new mysqli($dbCon->getServer(), $dbCon->getUser(), $dbCon->getPass());
+//test the connection
+if ($connection->connect_error)
+{
+	die("Failed to connect" . $connect->connect_error);
+}
+$sql = "use test1";
+$connection->query($sql);
+if($_POST[tname] != "" && $_POST[tcomment] != "")
+{
+	$sql = "INSERT INTO task (name, comment) VALUES('$_POST[tname]', '$_POST[tcomment]')";
+	if($connection->query($sql) === FALSE)
+	{
+		echo "ERROR: Insertion Error "  . $connection->error;
+	}
+}
+
+$connection->close();
 
 ?>

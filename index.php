@@ -1,9 +1,10 @@
 <?php
-$sever = "localhost";
-$username = "root";
-$password = "";
+include("class_Lib.php");
+?>
+<?php
+$dbCon = new dbInfo;
 // create connection
-$connection = new mysqli($sever, $username, $password);
+$connection = new mysqli($dbCon->getServer(), $dbCon->getUser(), $dbCon->getPass());
 //test the connection
 if ($connection->connect_error)
 {
