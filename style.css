@@ -26,4 +26,20 @@ main{ background-color: #ffffff;
 	padding-right: 20px;
 	margin-bottom: auto;}
 nav,main{display: block;}
+table{
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	width: 90%;
+	border-collapse: collapse;
+	style: center;
+}
+th{
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}
+
 
