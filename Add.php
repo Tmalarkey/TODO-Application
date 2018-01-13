@@ -29,10 +29,10 @@ echo "<h1>TODO List Application</h1>";
 <h2 style='text-align: center' >Add a Task</h2>
 
 <form method="post" >
-Name: <input type="text" name="tname"><br><br>
-Comment: <input type="text" name="tcomment"><br><br>
+Name: <input type="text" name="name"><br><br>
+Comment: <input type="text" name="comment"><br><br>
 Due Date: <input type="date" name="date"><br><br>
-Status: <select name="recommend">
+Status: <select name="status">
 	<option value="Pending">Pending</option>
 	<option value="Started">Started</option>
 	<option value="Completed">Completed</option>
@@ -59,14 +59,29 @@ if ($connection->connect_error)
 }
 $sql = "use test1";
 $connection->query($sql);
-if($_POST[tname] != "" && $_POST[tcomment] != "")
+if(!empty($_POST["name"])&& !empty($_POST["comment"])&& !empty($_POST["date"])&& !empty($_POST["status"]))
 {
-	$sql = "INSERT INTO task (name, comment) VALUES('$_POST[tname]', '$_POST[tcomment]')";
+	$sql = "INSERT INTO task (name, comment) VALUES('$_POST[name]', '$_POST[comment]')";
 	if($connection->query($sql) === FALSE)
 	{
 		echo "ERROR: Insertion Error "  . $connection->error;
 	}
+	$prevId = $connection->insert_id;
+	
+	$sql = "INSERT INTO duedate (taskID, ddate) VALUES($prevId , '$_POST[date]')";
+	if($connection->query($sql) === FALSE)
+	{
+		echo "ERROR: Insertion Error "  . $connection->error;
+	}
+	
+	$sql = "INSERT INTO status (taskID, status) VALUES($prevId , '$_POST[status]')";
+	if($connection->query($sql) === FALSE)
+	{
+		echo "ERROR: Insertion Error "  . $connection->error;
+	}
+	
 }
+
 
 $connection->close();
 

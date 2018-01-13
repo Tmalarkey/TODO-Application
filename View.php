@@ -1,5 +1,5 @@
 <?php
-
+include("class_Lib.php");
 ?>
 
 
@@ -28,12 +28,17 @@ echo "<h1>TODO List Application</h1>";
 		</div>
 <main>
 <div>
-	<?php
-	echo"<h2 style='text-align: center' >Todo View</h2>";
-	echo"<div><br><h2 style='text-align: center'>Number Of Total Task: 21</h2></div><br>";
-	echo"<div><h2 style='text-align: center'>Pending: 4 &nbsp; Started: 5&nbsp; Completed: 3 &nbsp; Late: 11 </h2></div>";
-		 
-	?>
+<h2 style='text-align: center' >View All Tasks</h2>
+<table>
+	<tr>
+		<th>Task ID</th>
+		<th>Name</th>
+		<th>Comment</th>
+		<th>Due Date</th>
+		<th>Status</th>
+	</tr>
+	
+</table>
 
 </main>
 </body>
