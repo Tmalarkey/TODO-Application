@@ -7,13 +7,14 @@
 		var $comment;
 		var $status;
 		var	$ddate;
-		function __construct($tId,$tName,$tComment,$tComment,$tStatus,$tDate)
-		{
-			$this->taskid =$tId;
-			$this->name =$tName;
-			$this->comment =$tComment;
-			$this->status =$tStatus;
-			$this->ddate =$tDate;
+		
+		function __construct(){
+			$this->taskid ="";
+			$this->name ="";
+			$this->comment ="";
+			$this->status ="";
+			$this->ddate ="";
+			
 		}
 		function setId($newId)
 		{
@@ -58,7 +59,7 @@
 	}
 	
 	class toDoList
-	{
+	{ 
 		public $tasks = array();
 	}
 	

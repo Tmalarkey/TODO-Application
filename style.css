@@ -41,5 +41,12 @@ th{
 	border-color: black;
 	text-align: center;
 }
+td{
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}
 
 
