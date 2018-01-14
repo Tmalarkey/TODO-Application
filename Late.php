@@ -37,7 +37,7 @@ echo "<h1>TODO List Application</h1>";
 		</div>
 <main>
 <div>
-<h2 style='text-align: center' >View All Tasks</h2>
+<h2 style='text-align: center' >View All Late Tasks</h2>
 <table>
 	<tr>
 		<th>Task ID</th>
@@ -49,7 +49,7 @@ echo "<h1>TODO List Application</h1>";
 	<?php
 	$sql = "use test1";
 	$connection->query($sql);
-	$sql = "SELECT * FROM task, status, dueDate WHERE task.taskID = status.taskID AND task.taskID = dueDate.taskID GROUP BY task.taskID";
+	$sql = "SELECT * FROM task, status, duedate WHERE task.taskID = status.taskID AND task.taskID = dueDate.taskID AND status = 'Late' GROUP BY task.taskID";
 	$result = $connection->query($sql);
 	if($result)
 	{

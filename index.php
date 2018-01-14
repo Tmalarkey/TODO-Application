@@ -36,7 +36,6 @@ if($connection->query($sql) === FALSE)
 {
 	echo "ERROR: Table not created"  . $connection->error;
 }
-$connection->close();
 
 ?>
 <! DOCTYPE html>
@@ -64,14 +63,40 @@ echo "<h1>TODO List Application</h1>";
 		</div>
 <main>
 <div>
+<h2 style='text-align: center' >Todo List Information</h2>
 	<?php
-	echo"<h2 style='text-align: center' >Todo List Information</h2>";
-	echo"<div><br><h2 style='text-align: center'>Number Of Total Task: 21</h2></div><br>";
-	echo"<div><h2 style='text-align: center'>Pending: 4 &nbsp; Started: 5&nbsp; Completed: 3 &nbsp; Late: 11 </h2></div>";
+	$sql = "SELECT * FROM task, status, dueDate WHERE task.taskID = status.taskID AND task.taskID = dueDate.taskID GROUP BY task.taskID";
+	$result = $connection->query($sql);
+	$row_count = mysqli_num_rows($result);
+	echo"<div><br><h2 style='text-align: center'>Number Of Total Task:";
+	echo $row_count;
+	echo"</h2></div><br>";
+	$sql = "SELECT * FROM status WHERE status = 'Pending'";
+	$result = $connection->query($sql);
+	$row_count = mysqli_num_rows($result);
+	echo"<div><h2 style='text-align: center'><a href='Pending.php'>Pending: </a>";
+	echo $row_count;
+	$sql = "SELECT * FROM status WHERE status = 'Started'";
+	$result = $connection->query($sql);
+	$row_count = mysqli_num_rows($result);
+	echo"&nbsp; <a href='Started.php'>Started: </a>";
+	echo$row_count;
+	$sql = "SELECT * FROM status WHERE status = 'Completed'";
+	$result = $connection->query($sql);
+	$row_count = mysqli_num_rows($result);
+	echo"&nbsp; <a href='Completed.php'>Completed:  </a>";
+	echo$row_count;
+	$sql = "SELECT * FROM status WHERE status = 'Late'";
+	$result = $connection->query($sql);
+	$row_count = mysqli_num_rows($result);
+	echo"&nbsp; <a href='Late.php'>Late:  </a>";
+	echo$row_count;
+	echo"</h2></div>";
 		 
 	?>
-
-</main>
-</body>
 </div>
+</main>
+<footer>
+</footer>
+</body>
 </html>

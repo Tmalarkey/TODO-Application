@@ -87,4 +87,5 @@ if(!empty($_POST["taskId"]))
 	}
 	header("refresh:0; url=Delete.php");
 }
+$connection->close();
 ?>
