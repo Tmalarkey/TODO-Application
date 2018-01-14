@@ -82,7 +82,6 @@ if(!empty($_POST["name"])&& !empty($_POST["comment"])&& !empty($_POST["date"])&&
 	
 }
 
-
 $connection->close();
 
 ?>
